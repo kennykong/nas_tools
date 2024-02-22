@@ -745,7 +745,7 @@ show_cert(){
 }
 
 optimize(){
-    curl https://raw.githubusercontent.com/imajeason/nas_tools/main/NaiveProxy/optimize.sh | bash -
+    curl https://raw.githubusercontent.com/kennykong/nas_tools/main/NaiveProxy/optimize.sh | bash -
     curl https://github.com/teddysun/across/raw/master/bbr.sh | bash -
 
 }
@@ -762,7 +762,7 @@ cert_renew(){
 }
 
 shell_renew(){
-    curl -o /root/.naive.sh https://raw.githubusercontent.com/imajeason/nas_tools/main/NaiveProxy/naive.sh 
+    curl -o /root/.naive.sh https://raw.githubusercontent.com/kennykong/nas_tools/main/NaiveProxy/naive.sh 
     chmod +x /root/.naive.sh
     echo
     echo -e "$red naive更新完成，请重新执行naive $none"
