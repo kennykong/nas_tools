@@ -411,7 +411,7 @@ config() {
     mkdir /etc/caddy/
     mkdir /var/www/ -p
 
-    wget -c https://raw.githubusercontent.com/imajeason/nas_tools/main/NaiveProxy/html.tar.gz -O - | tar -xz -C /var/www/
+    wget -c https://raw.githubusercontent.com/kennykong/nas_tools/main/NaiveProxy/html.tar.gz -O - | tar -xz -C /var/www/
     # 生成密码
     # /etc/letsencrypt/live/x.dongvps.com/
 
