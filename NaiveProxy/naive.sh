@@ -419,7 +419,6 @@ config() {
         certbot renew
     else
         certbot certonly --standalone -d $domain --agree-to --email $email
-        #certbot certonly --test-cert -d $domain --agree-to --email $email
     fi
     # 生成json
 
