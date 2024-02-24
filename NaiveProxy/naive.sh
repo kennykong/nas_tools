@@ -307,7 +307,7 @@ caddy_config() {
                     {
                       "handle": [
                         {
-                          "auth_user_deprecated": "$user",
+                          "auth_user_deprecated": "User",
                           "auth_pass_deprecated": "$password",
                           "handler": "forward_proxy",
                           "hide_ip": true,
