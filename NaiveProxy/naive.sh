@@ -256,8 +256,8 @@ install_go() {
 install_caddy() {
     # download caddy file then install
     mkdir /root/src && cd /root/src/
-    go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.2.1
-    ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy/tree/v2.7.5-caddy2-naive2
+    go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.3.5
+    ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@v2.7.6-naive
     cp caddy /usr/bin/
     /usr/bin/caddy version        # 2022-4-8 23:09
     #v2.4.6 h1:HGkGICFGvyrodcqOOclHKfvJC0qTU7vny/7FhYp9hNw=  
@@ -286,6 +286,7 @@ install_certbot() {
 caddy_config() {
     password=$uuid
 
+# auth_credentials 格式是：user:pass，两次base64加密
     cat > /etc/caddy/caddy_config.json << EOF
 {
   "admin": {
@@ -307,8 +308,7 @@ caddy_config() {
                     {
                       "handle": [
                         {
-                          "auth_user_deprecated": "User",
-                          "auth_pass_deprecated": "$password",
+                          "auth_credentials":["ZFhObGNqcHdZWE56"],
                           "handler": "forward_proxy",
                           "hide_ip": true,
                           "hide_via": true,
@@ -453,7 +453,8 @@ edit_config() {
     read -p "$(echo -e "(当前密码: ${cyan}${password}$none):")" password1
     [ -z "$password1" ] || password=$password1
     # 输入端口
-    
+
+    # auth_credentials 格式是：user:pass，两次base64加密
     cat > /etc/caddy/caddy_config.json << EOF
 {
   "admin": {
@@ -475,8 +476,7 @@ edit_config() {
                     {
                       "handle": [
                         {
-                          "auth_user_deprecated": "$user",
-                          "auth_pass_deprecated": "$password",
+                          "auth_credentials":["ZFhObGNqcHdZWE56"],
                           "handler": "forward_proxy",
                           "hide_ip": true,
                           "hide_via": true,
