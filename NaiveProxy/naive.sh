@@ -238,8 +238,8 @@ domain_check() {
 install_go() {
     cd /opt
     rm /opt/go*.tar.gz /usr/local/go/ -rf
-    wget https://go.dev/dl/go1.21.7.linux-${caddy_arch}.tar.gz
-    tar -zxf go1.21.7.linux-${caddy_arch}.tar.gz -C /usr/local/
+    wget https://go.dev/dl/go1.22.0.linux-${caddy_arch}.tar.gz
+    tar -zxf go1.22.0.linux-${caddy_arch}.tar.gz -C /usr/local/
     echo export GOROOT=/usr/local/go >> /etc/profile
     echo export PATH=$GOROOT/bin:$PATH >> /etc/profile
     source /etc/profile
@@ -259,8 +259,8 @@ install_caddy() {
     go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.3.5
     ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@v2.7.6-naive
     cp caddy /usr/bin/
-    /usr/bin/caddy version        # 2022-4-8 23:09
-    #v2.4.6 h1:HGkGICFGvyrodcqOOclHKfvJC0qTU7vny/7FhYp9hNw=  
+    /usr/bin/caddy version        # 2024-02-24 23:42
+    #v2.7.6 h1:w0NymbG2m9PcvKWsrXO6EEkY9Ru4FJK8uQbYcev1p3A= 
     setcap cap_net_bind_service=+ep /usr/bin/caddy  # 设置bind权限，可443
 }
 
