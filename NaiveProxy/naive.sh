@@ -254,11 +254,11 @@ install_go() {
 }
 
 #安装最新版caddy
-install_caddy1() {
+install_caddy() {
     # download caddy file then install
     mkdir /root/src && cd /root/src/
     go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.3.5
-    ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive
+    ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/kennykong/forwardproxy@v2.7.6-naive
     cp caddy /usr/bin/
     /usr/bin/caddy version        # 2024-02-24 23:42
     #v2.7.6 h1:w0NymbG2m9PcvKWsrXO6EEkY9Ru4FJK8uQbYcev1p3A= 
@@ -266,7 +266,7 @@ install_caddy1() {
 }
 
 #固定caddy安装版本
-install_caddy() {
+install_caddy1() {
     # download caddy file then install
     mkdir /root/src 
     cd /root/src/
