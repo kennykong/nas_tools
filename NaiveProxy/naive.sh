@@ -254,7 +254,7 @@ install_go() {
 }
 
 #安装最新版caddy
-install_caddy1() {
+install_caddy() {
     # download caddy file then install
     mkdir /root/src && cd /root/src/
     go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.3.5
@@ -266,7 +266,7 @@ install_caddy1() {
 }
 
 #固定caddy安装版本
-install_caddy() {
+install_caddy1() {
     # download caddy file then install
     mkdir /root/src 
     cd /root/src/
