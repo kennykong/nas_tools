@@ -236,10 +236,11 @@ domain_check() {
 }
 
 install_go() {
+    $go_version == "go1.22.5" 
     cd /opt
     rm /opt/go*.tar.gz /usr/local/go/ -rf
-    wget https://go.dev/dl/go1.22.1.linux-${caddy_arch}.tar.gz
-    tar -zxf go1.22.5.linux-${caddy_arch}.tar.gz -C /usr/local/
+    wget https://go.dev/dl/${go_version}.linux-${caddy_arch}.tar.gz
+    tar -zxf ${go_version}.linux-${caddy_arch}.tar.gz -C /usr/local/
     echo export GOROOT=/usr/local/go >> /etc/profile
     echo export PATH=$GOROOT/bin:$PATH >> /etc/profile
     source /etc/profile
