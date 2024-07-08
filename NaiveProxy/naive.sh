@@ -16,7 +16,6 @@ _cyan() { echo -e ${cyan}$*${none}; }
 [[ $(id -u) != 0 ]] && echo -e "\n 哎呀……请使用 ${red}root ${none}用户运行 ${yellow}~(^_^) ${none}\n" && exit 1
 
 cmd="apt-get"
-go_version="go1.22.5"
 sys_bit=$(uname -m)
 
 case $sys_bit in
@@ -236,6 +235,8 @@ domain_check() {
 }
 
 install_go() {
+
+    local go_version="go1.22.5"
     cd /opt
     rm /opt/go*.tar.gz /usr/local/go/ -rf
     wget https://go.dev/dl/${go_version}.linux-${caddy_arch}.tar.gz
