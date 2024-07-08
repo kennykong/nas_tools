@@ -236,7 +236,7 @@ domain_check() {
 }
 
 install_go() {
-    $go_version == "go1.22.5" 
+    $go_version = "go1.22.5"
     cd /opt
     rm /opt/go*.tar.gz /usr/local/go/ -rf
     wget https://go.dev/dl/${go_version}.linux-${caddy_arch}.tar.gz
