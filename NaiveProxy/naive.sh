@@ -236,7 +236,7 @@ domain_check() {
 
 install_go() {
 
-    local go_version="go1.22.5"
+    local go_version="go1.23.2"
     cd /opt
     rm /opt/go*.tar.gz /usr/local/go/ -rf
     wget https://go.dev/dl/${go_version}.linux-${caddy_arch}.tar.gz
